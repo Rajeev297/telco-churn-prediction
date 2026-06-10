@@ -1,0 +1,14 @@
+
+======================================================================
+EXPLORATORY DATA ANALYSIS - SUMMARY REPORT
+======================================================================
+
+Churn Rate: 26.54%
+Avg Tenure Churn: 18.0 months
+Avg Tenure No Churn: 37.6 months
+Avg Monthly Charges Churn: $74.44
+Avg Monthly Charges No Churn: $61.27
+Highest Churn Contract: Month-to-month
+Highest Churn Rate: 42.7%
+
+======================================================================

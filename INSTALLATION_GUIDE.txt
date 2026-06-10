@@ -1,0 +1,284 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║          CUSTOMER CHURN PREDICTION - INSTALLATION GUIDE                   ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+🚀 QUICK INSTALLATION (3 OPTIONS)
+
+════════════════════════════════════════════════════════════════════════════
+
+OPTION 1: AUTOMATIC INSTALLATION (EASIEST - WINDOWS)
+─────────────────────────────────────────────────────
+
+1. Open Command Prompt or PowerShell
+
+2. Navigate to project:
+   cd C:\Users\gfx10\AppData\Local\Temp\opencode\customer_churn_ml
+
+3. Run one of these:
+   
+   For Command Prompt (cmd.exe):
+   install.bat
+   
+   For PowerShell:
+   .\install.ps1
+
+That's it! The script will do everything automatically.
+
+════════════════════════════════════════════════════════════════════════════
+
+OPTION 2: MANUAL INSTALLATION (RECOMMENDED - ALL PLATFORMS)
+────────────────────────────────────────────────────────────
+
+STEP 1: Open Terminal/Command Prompt
+────────────────────────────────────
+Windows: Press Win+R, type "cmd", press Enter
+Mac/Linux: Open Terminal app
+
+STEP 2: Navigate to Project Directory
+────────────────────────────────────
+cd C:\Users\gfx10\AppData\Local\Temp\opencode\customer_churn_ml
+
+(or your project path)
+
+STEP 3: Create Virtual Environment
+────────────────────────────────────
+Windows:
+  python -m venv venv
+  venv\Scripts\activate
+
+Mac/Linux:
+  python3 -m venv venv
+  source venv/bin/activate
+
+After activation, you should see (venv) in your prompt.
+
+STEP 4: Upgrade pip (Important!)
+────────────────────────────────────
+python -m pip install --upgrade pip setuptools wheel
+
+STEP 5: Install All Dependencies
+────────────────────────────────────
+pip install -r requirements.txt
+
+Wait for completion (2-5 minutes). You'll see many packages installing.
+
+STEP 6: Verify Installation
+────────────────────────────────────
+python setup_check.py
+
+You should see:
+  ✓ Python Version
+  ✓ Project Structure
+  ✓ Module Imports
+  ✓ Setup successful
+
+════════════════════════════════════════════════════════════════════════════
+
+OPTION 3: INDIVIDUAL PACKAGE INSTALLATION (IF OPTION 2 FAILS)
+─────────────────────────────────────────────────────────────
+
+If requirements.txt installation fails, try installing packages individually:
+
+pip install pandas
+pip install numpy
+pip install scikit-learn
+pip install xgboost
+pip install shap
+pip install matplotlib
+pip install seaborn
+pip install streamlit
+
+════════════════════════════════════════════════════════════════════════════
+
+⚠️  TROUBLESHOOTING
+
+PROBLEM 1: "venv\Scripts\activate is not recognized"
+──────────────────────────────────────────────────
+Solution 1: Try double backslash
+  venv\\Scripts\\activate
+
+Solution 2: Use Python directly
+  python -m venv venv
+  python -m pip install --upgrade pip
+
+Solution 3: Use PowerShell instead of Command Prompt
+  .\venv\Scripts\Activate.ps1
+
+PROBLEM 2: "pip is not recognized"
+──────────────────────────────────
+Solution 1: Use Python module directly
+  python -m pip install -r requirements.txt
+
+Solution 2: Upgrade pip
+  python -m pip install --upgrade pip
+
+Solution 3: Specify full path to pip
+  C:\Python313\Scripts\pip install -r requirements.txt
+
+PROBLEM 3: "pip: command not found" (Mac/Linux)
+───────────────────────────────────────────────
+Solution:
+  python3 -m pip install -r requirements.txt
+
+PROBLEM 4: "Microsoft Visual C++ 14.0 is required"
+──────────────────────────────────────────────────
+This happens on Windows when installing packages that need compilation.
+
+Solution 1: Skip binary compilation (EASIEST)
+  pip install --only-binary :all: -r requirements.txt
+
+Solution 2: Install Visual C++ Build Tools
+  - Download from: https://visualstudio.microsoft.com/downloads/
+  - Select "Desktop development with C++"
+  - Install and retry
+
+PROBLEM 5: "Failed to build xgboost"
+────────────────────────────────────
+Solution:
+  python -m pip install --upgrade setuptools wheel
+  pip install -r requirements.txt
+
+PROBLEM 6: Permission denied or access denied
+──────────────────────────────────────────────
+Solution 1: Run as Administrator
+  - Right-click Command Prompt
+  - Select "Run as administrator"
+  - Try again
+
+Solution 2: Use --user flag
+  pip install --user -r requirements.txt
+
+PROBLEM 7: "streamlit is not recognized" (after installation)
+─────────────────────────────────────────────────────────────
+This means your virtual environment isn't activated.
+
+Solution:
+  1. Make sure you see (venv) in your prompt
+  2. If not, activate it:
+     Windows: venv\Scripts\activate
+     Mac/Linux: source venv/bin/activate
+  3. Then try: streamlit run app/streamlit_app.py
+
+════════════════════════════════════════════════════════════════════════════
+
+✅ VERIFICATION STEPS
+
+After Installation, verify everything works:
+
+Step 1: Check Python
+──────────────────
+python --version
+(Should be 3.8 or higher)
+
+Step 2: Check virtual environment is active
+──────────────────────────────────────────
+Look for (venv) at the start of your prompt
+
+Step 3: Check key packages
+──────────────────────────
+python -c "import pandas; print('Pandas OK')"
+python -c "import sklearn; print('Scikit-learn OK')"
+python -c "import xgboost; print('XGBoost OK')"
+python -c "import streamlit; print('Streamlit OK')"
+python -c "import shap; print('SHAP OK')"
+
+All should print OK.
+
+Step 4: Run setup check
+──────────────────────
+python setup_check.py
+
+Should see green checkmarks for all items.
+
+════════════════════════════════════════════════════════════════════════════
+
+📦 WHAT GETS INSTALLED
+
+Core ML Packages:
+  • pandas            - Data manipulation
+  • numpy             - Numerical computing
+  • scikit-learn      - Machine learning
+  • xgboost           - Gradient boosting
+  • shap              - Model explainability
+
+Visualization:
+  • matplotlib        - Plotting
+  • seaborn          - Statistical plots
+
+Web Framework:
+  • streamlit        - Interactive web app
+
+════════════════════════════════════════════════════════════════════════════
+
+🚀 AFTER INSTALLATION: NEXT STEPS
+
+1. Verify Installation (1 min)
+   python setup_check.py
+
+2. Train Model (10 min)
+   python train_pipeline.py
+
+3. Launch Web App (1 min)
+   streamlit run app/streamlit_app.py
+
+4. Open Browser
+   http://localhost:8501
+
+5. Make Predictions!
+   Go to "Prediction" page and enter customer data
+
+════════════════════════════════════════════════════════════════════════════
+
+💡 TIPS
+
+✓ Always keep your virtual environment activated
+  (Look for (venv) in your prompt)
+
+✓ If you close the terminal, you need to reactivate:
+  Windows: venv\Scripts\activate
+  Mac/Linux: source venv/bin/activate
+
+✓ To deactivate virtual environment:
+  deactivate
+
+✓ On Windows, if scripts won't run, try:
+  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+✓ Keep terminal open while running Streamlit app
+  Press Ctrl+C to stop it
+
+════════════════════════════════════════════════════════════════════════════
+
+❓ STILL HAVING ISSUES?
+
+1. Check if Python is installed:
+   python --version
+
+2. Try using python3:
+   python3 -m venv venv
+   python3 -m pip install -r requirements.txt
+
+3. Use Google to search the error message
+
+4. Check that requirements.txt exists:
+   ls requirements.txt (Mac/Linux)
+   dir requirements.txt (Windows)
+
+5. Restart your computer and try again
+
+════════════════════════════════════════════════════════════════════════════
+
+✨ YOU'RE READY!
+
+Once installation completes:
+
+1. python train_pipeline.py
+2. streamlit run app/streamlit_app.py
+3. Open http://localhost:8501
+4. Make predictions!
+
+Happy predicting! 🎉
+
+════════════════════════════════════════════════════════════════════════════

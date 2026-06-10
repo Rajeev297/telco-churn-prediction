@@ -1,0 +1,19 @@
+
+======================================================================
+SHAP EXPLAINABILITY REPORT
+======================================================================
+
+TOP 10 MOST IMPORTANT FEATURES (by mean |SHAP value|):
+----------------------------------------------------------------------
+TechSupport_No internet service         : 0.107266
+TechSupport_Yes                         : 0.107266
+StreamingTV_No internet service         : 0.074656
+StreamingTV_No                          : 0.074656
+Contract_Two year                       : 0.053726
+PaperlessBilling_No                     : 0.053726
+StreamingMovies_No internet service     : 0.052737
+StreamingMovies_Yes                     : 0.052737
+Contract_One year                       : 0.050952
+Contract_Month-to-month                 : 0.050952
+
+======================================================================

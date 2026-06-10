@@ -1,0 +1,33 @@
+
+CUSTOMER CHURN PREDICTION PIPELINE - SUMMARY
+======================================================================
+
+Pipeline Execution Date: 2026-06-10T18:24:15.856491
+
+BEST MODEL: Logistic Regression
+- ROC-AUC Score:        0.8445
+- Test Recall:          0.5401  (default threshold 0.50)
+- Test Precision:       0.6372
+- Test F1 Score:        0.5847
+- Test Accuracy:        0.7963
+
+THRESHOLD TUNING:
+- Optimal Threshold:    0.10
+- Recall @ Optimal:     0.9439
+- Precision @ Optimal:  0.4044
+
+DATA STATISTICS:
+- Training samples: 8278
+- Test samples: 1409
+- Total features: 54
+- SMOTE applied: True
+
+OUTPUTS GENERATED:
+- EDA visualizations: outputs/01_*.png - outputs/08_*.png
+- Model comparison plots: outputs/09_*.png, outputs/10_*.png
+- Threshold tuning curves: outputs/13_threshold_tuning.png
+- SHAP explanations: outputs/11_*.png, outputs/12_*.png
+- Model files: models/*.pkl
+- Reports: reports/*.txt
+
+======================================================================

@@ -1,0 +1,64 @@
+
+================================================================================
+MODEL EVALUATION REPORT (Recall & ROC-AUC Focus)
+================================================================================
+
+
+Logistic Regression:
+------------------------------------------------------------
+  Cross-Val ROC-AUC: 0.9406 (+/- 0.0653)
+  Test Accuracy:        0.7963
+  Test Precision:       0.6372
+  Test Recall:          0.5401
+  Test F1 Score:        0.5847
+  Test ROC-AUC:         0.8445
+  Optimal Threshold:    0.10
+  Recall@OptimalThresh: 0.9439
+  Precision@OptThresh:  0.4044
+
+Random Forest:
+------------------------------------------------------------
+  Cross-Val ROC-AUC: 0.9421 (+/- 0.0534)
+  Test Accuracy:        0.7821
+  Test Precision:       0.5954
+  Test Recall:          0.5588
+  Test F1 Score:        0.5766
+  Test ROC-AUC:         0.8306
+  Optimal Threshold:    0.13
+  Recall@OptimalThresh: 0.9332
+  Precision@OptThresh:  0.4021
+
+XGBoost:
+------------------------------------------------------------
+  Cross-Val ROC-AUC: 0.9428 (+/- 0.0652)
+  Test Accuracy:        0.7871
+  Test Precision:       0.6108
+  Test Recall:          0.5455
+  Test F1 Score:        0.5763
+  Test ROC-AUC:         0.8331
+  Optimal Threshold:    0.08
+  Recall@OptimalThresh: 0.9278
+  Precision@OptThresh:  0.4054
+
+LightGBM:
+------------------------------------------------------------
+  Cross-Val ROC-AUC: 0.9441 (+/- 0.0614)
+  Test Accuracy:        0.7899
+  Test Precision:       0.6134
+  Test Recall:          0.5642
+  Test F1 Score:        0.5877
+  Test ROC-AUC:         0.8387
+  Optimal Threshold:    0.11
+  Recall@OptimalThresh: 0.9358
+  Precision@OptThresh:  0.4037
+
+================================================================================
+BEST MODEL: Logistic Regression
+================================================================================
+
+RECOMMENDATION:
+  The best model is Logistic Regression with ROC-AUC of 0.8445.
+  Using the optimal threshold of 0.10,
+  recall improves from 0.5401 to 0.9439,
+  while precision adjusts from 0.6372 to 0.4044.
+  This configuration captures more at-risk customers for proactive retention.

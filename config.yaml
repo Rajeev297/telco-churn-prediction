@@ -1,0 +1,37 @@
+app:
+  name: "Churn Analytics Platform"
+  version: "2.0.0"
+  debug: false
+
+paths:
+  models_dir: "models"
+  reports_dir: "reports"
+  outputs_dir: "outputs"
+  data_dir: "data"
+
+model:
+  threshold: 0.10
+  best_model_name: "Logistic Regression"
+  smote_enabled: true
+  cv_folds: 5
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 2
+  log_level: "info"
+
+streamlit:
+  host: "0.0.0.0"
+  port: 8501
+  theme: "dark"
+
+shap:
+  enabled: true
+  max_background_samples: 100
+  max_explainer_samples: 100
+
+monitoring:
+  audit_log: "logs/audit.log"
+  prediction_log: "logs/predictions.log"
+  metrics_log: "logs/metrics.log"
