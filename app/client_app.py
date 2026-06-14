@@ -351,33 +351,50 @@ def load_artifacts():
     preprocessor = None
     explainer = None
     threshold = 0.5
+
+    def _is_valid_pickle(path):
+        """Check if file is a valid pickle (not a Git LFS pointer)."""
+        try:
+            with open(path, 'rb') as f:
+                header = f.read(100)
+                return not header.startswith(b'version https://git-lfs')
+        except Exception:
+            return False
+
     try:
         prep_path = os.path.join(MODELS_DIR, 'preprocessor.pkl')
-        if os.path.exists(prep_path):
+        if os.path.exists(prep_path) and _is_valid_pickle(prep_path):
             with open(prep_path, 'rb') as f:
                 preprocessor = pickle.load(f)
     except Exception as e:
-        st.error(f"Failed to load preprocessor: {e}")
+        st.warning(f"Preprocessor not loaded: {e}")
     try:
         files = [f for f in os.listdir(MODELS_DIR) if f.endswith('.pkl') and 'preprocessor' not in f and 'explainer' not in f and 'metadata' not in f]
         if files:
             latest = max(files, key=lambda f: os.path.getctime(os.path.join(MODELS_DIR, f)))
-            with open(os.path.join(MODELS_DIR, latest), 'rb') as f:
-                obj = pickle.load(f)
-                if isinstance(obj, dict) and 'model' in obj:
-                    model = obj['model']
-                    threshold = obj.get('threshold', 0.5)
-                else:
-                    model = obj
+            path = os.path.join(MODELS_DIR, latest)
+            if _is_valid_pickle(path):
+                with open(path, 'rb') as f:
+                    obj = pickle.load(f)
+                    if isinstance(obj, dict) and 'model' in obj:
+                        model = obj['model']
+                        threshold = obj.get('threshold', 0.5)
+                    else:
+                        model = obj
     except Exception as e:
-        st.error(f"Failed to load model: {e}")
+        st.warning(f"Model not loaded: {e}")
     try:
         exp_path = os.path.join(MODELS_DIR, 'shap_explainer.pkl')
-        if os.path.exists(exp_path):
+        if os.path.exists(exp_path) and _is_valid_pickle(exp_path):
             with open(exp_path, 'rb') as f:
                 explainer = pickle.load(f)
     except Exception:
         pass
+
+    if model is None or preprocessor is None:
+        files_exist = any(f.endswith('.pkl') for f in os.listdir(MODELS_DIR)) if os.path.isdir(MODELS_DIR) else False
+        if files_exist:
+            st.error("Model files are Git LFS pointers. Enable Git LFS in Streamlit Cloud: Settings → Advanced → Git LFS = ON")
     return model, preprocessor, explainer, threshold
 
 model, preprocessor, explainer, MODEL_THRESHOLD = load_artifacts()
